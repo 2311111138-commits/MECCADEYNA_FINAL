@@ -4,7 +4,7 @@
  */
 
 import { useState } from "react";
-import { X, CheckCircle, Scissors, Sparkles, Feather, FileText, Calendar } from "lucide-react";
+import { X, CheckCircle2, Scissors, Sparkles, Feather, FileText, Calendar, ArrowRight } from "lucide-react";
 
 interface ServiceDetail {
   id: string;
@@ -65,138 +65,223 @@ export default function CatalogService() {
     }
   ];
 
+  const handleConsultService = (service: ServiceDetail) => {
+    const text = `Halo Meccadeyna, saya ingin mendiskusikan jasa produksi khusus *${service.category}* untuk model *${service.title}* saya. Mohon info lebih lengkap mengenai langkah awal pemesanan.`;
+    window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(text)}`, "_blank");
+  };
+
   return (
-    <section id="layanan" className="py-24 bg-[#F5F1EA] select-none">
+    <section id="layanan" className="py-28 bg-[#FDFCF8] select-none text-[#2C2C24]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <span className="w-6 h-[1px] bg-[#7B8B6F]" />
-            <span className="text-xs uppercase tracking-[0.3em] text-[#7B8B6F] font-semibold">Kategori Produksi</span>
-            <span className="w-6 h-[1px] bg-[#7B8B6F]" />
+        <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+          <div className="flex items-center justify-center space-x-2">
+            <span className="w-6 h-[1.5px] bg-[#5D7052]" />
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#5D7052] font-bold">Kategori Produksi</span>
+            <span className="w-6 h-[1px] bg-[#5D7052]" />
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#2B2B2B] leading-tight mb-4">
-            Layanan Utama & <span className="italic font-light text-[#B89B72]">Katalog Spesialisasi</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#2C2C24] leading-tight font-extrabold">
+            Layanan Utama & <span className="italic font-light text-[#C18C5D]">Katalog Spesialisasi</span>
           </h2>
-          <p className="text-sm text-[#2B2B2B]/75">
-            Didedikasikan penuh untuk memproses bahan rayon dan katun pilihan menjadi mahakarya pakaian modest premium yang siap memikat pasaran fashion modern.
+          <p className="text-xs sm:text-sm text-[#2C2C24]/70 max-w-xl mx-auto font-light leading-relaxed">
+            Didedikasikan penuh untuk mengolah lembaran bahan serat alami seperti katun murni dan rayon premium menjadi sandang modest berkelas butik internasional yang siap memperkuat brand Anda.
           </p>
         </div>
 
-        {/* 3-Column Luxury Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {services.map((item) => (
-            <div
-              key={item.id}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#B89B72]/10 shadow-[0_4px_30px_rgba(43,43,43,0.02)] hover:shadow-[0_15px_40px_rgba(123,139,111,0.07)] hover:translate-y-[-6px] transition-all duration-500 flex flex-col h-full"
-            >
-              {/* Card Image Container */}
-              <div className="relative aspect-[3/4] overflow-hidden bg-[#EFEAE0]">
-                {/* Visual Warm Gold Overlay */}
-                <div className="absolute inset-0 bg-[#B89B72]/5 mix-blend-multiply z-10 transition-opacity duration-500 group-hover:opacity-0" />
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-transform duration-1000 scale-100 group-hover:scale-[1.05]"
-                  loading="lazy"
-                />
-                
-                {/* Small category tag in image corner */}
-                <div className="absolute top-4 left-4 z-20 bg-[#F5F1EA]/95 backdrop-blur-sm border border-[#B89B72]/15 px-3 py-1.5 rounded-full">
-                  <span className="text-[10px] uppercase tracking-widest text-[#7B8B6F] font-bold">
-                    {item.category}
-                  </span>
-                </div>
+        {/* ASYMMETRIC LOOKBOOK GRID COMPOSITION */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+          
+          {/* FEATURED SERVICE CARD - Gamis (Spans 7 columns on large screens) */}
+          <div 
+            className="lg:col-span-7 bg-[#FEFEFA] overflow-hidden border border-[#DED8CF]/50 shadow-soft hover:shadow-[0_20px_40px_-10px_rgba(93,112,82,0.15)] transition-all duration-500 group flex flex-col justify-between"
+            style={{ borderRadius: "3rem 1.5rem 3rem 1.5rem" }}
+          >
+            <div className="relative aspect-[16/10] overflow-hidden bg-[#F0EBE5]">
+              <div className="absolute inset-0 bg-[#C18C5D]/5 mix-blend-multiply z-10 transition-opacity duration-500 group-hover:opacity-0" />
+              <img
+                src={services[0].image}
+                alt={services[0].title}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-[1.2s] scale-100 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="absolute top-5 left-5 z-20 bg-[#FDFCF8]/95 backdrop-blur-md border border-[#DED8CF]/60 px-4 py-1.5 rounded-full shadow-soft">
+                <span className="text-[9px] uppercase tracking-[0.15em] text-[#5D7052] font-bold">
+                  {services[0].category}
+                </span>
               </div>
+            </div>
 
-              {/* Card Content */}
-              <div className="p-8 flex flex-col justify-between flex-grow">
-                <div>
-                  <h3 className="font-serif text-xl sm:text-2xl text-[#2B2B2B] group-hover:text-[#7B8B6F] transition-colors duration-300 mb-3">
-                    {item.title}
+            <div className="p-8 md:p-10 flex flex-col justify-between flex-grow">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-serif text-2xl sm:text-3xl text-[#2C2C24] group-hover:text-[#5D7052] transition-colors duration-300 font-extrabold">
+                    {services[0].title}
                   </h3>
-                  <p className="text-xs text-[#2B2B2B]/70 leading-relaxed mb-6">
-                    {item.tagline}
-                  </p>
-                  
-                  {/* Small specs bullet icons */}
-                  <div className="space-y-2 mb-8 border-t border-[#B89B72]/10 pt-4">
-                    <div className="flex items-center text-[11px] text-[#2B2B2B]/60 uppercase tracking-wider font-semibold">
-                      <Feather className="w-3.5 h-3.5 text-[#B89B72] mr-2" />
-                      <span>Fokus Rayon & Katun Premium</span>
+                  <span className="text-xs font-serif italic text-[#C18C5D] font-bold">{services[0].moq}</span>
+                </div>
+                
+                <p className="text-xs sm:text-sm text-[#2C2C24]/75 leading-relaxed font-light">
+                  {services[0].desc}
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 border-t border-b border-[#DED8CF]/50 my-4 text-xs">
+                  <div className="flex items-start space-x-3">
+                    <Feather className="w-4 h-4 text-[#C18C5D] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold">Bahan Serat Alami</p>
+                      <p className="text-[#2C2C24]/60 text-[11px] leading-relaxed">Rayon Twill, Rayon Silk, Toyobo, Linen</p>
                     </div>
-                    <div className="flex items-center text-[11px] text-[#2B2B2B]/60 uppercase tracking-wider font-semibold">
-                      <Scissors className="w-3.5 h-3.5 text-[#7B8B6F] mr-2" />
-                      <span>Jahitan Butik Halus & Rapi</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Scissors className="w-4 h-4 text-[#5D7052] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold">Boutique Seams Standard</p>
+                      <p className="text-[#2C2C24]/60 text-[11px] leading-relaxed">Kelim bulat mikro, obras 4 benang rapat</p>
                     </div>
                   </div>
                 </div>
+              </div>
 
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
                 <button
-                  onClick={() => setSelectedService(item)}
-                  className="w-full text-center bg-[#EFEAE0] hover:bg-[#7B8B6F] text-[#2B2B2B] hover:text-white px-6 py-3.5 rounded-2xl text-xs font-semibold tracking-widest uppercase transition-all duration-300"
+                  onClick={() => setSelectedService(services[0])}
+                  className="flex-1 text-center bg-[#F0EBE5] hover:bg-[#E6DCCD] text-[#2C2C24] px-6 py-4 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 hover:scale-105 active:scale-95 shadow-soft border border-[#DED8CF]/40"
                 >
-                  Lihat Detail Spesifikasi
+                  Detail Spesifikasi
+                </button>
+                <button
+                  onClick={() => handleConsultService(services[0])}
+                  className="flex-1 text-center bg-[#5D7052] hover:bg-[#4c5c43] text-[#F3F4F1] px-6 py-4 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center space-x-2 shadow-soft"
+                >
+                  <span>Mulai Desain Gamis</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* SECOND & THIRD SERVICES (Staggered Column grid on the right) */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-10">
+            {services.slice(1).map((item, idx) => (
+              <div
+                key={item.id}
+                className="bg-[#FEFEFA] overflow-hidden border border-[#DED8CF]/50 shadow-soft hover:shadow-[0_20px_40px_-10px_rgba(93,112,82,0.15)] transition-all duration-500 hover:rotate-1 group flex flex-col justify-between flex-grow"
+                style={{ borderRadius: idx % 2 === 0 ? "2rem 4rem 2rem 4rem" : "4rem 2rem 4rem 2rem" }}
+              >
+                {/* Horizontal Card Layout for secondary categories */}
+                <div className="grid grid-cols-1 sm:grid-cols-12 h-full">
+                  
+                  {/* Left Side: Thumbnail image */}
+                  <div className="sm:col-span-5 relative h-48 sm:h-auto overflow-hidden bg-[#F0EBE5]">
+                    <div className="absolute inset-0 bg-[#C18C5D]/5 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-0" />
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-[1.2s] scale-100 group-hover:scale-[1.04]"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-4 left-4 z-20 bg-[#FDFCF8]/95 border border-[#DED8CF]/40 px-2.5 py-1 rounded-full shadow-soft">
+                      <span className="text-[8px] uppercase tracking-wider text-[#5D7052] font-bold">
+                        {item.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Right Side: content */}
+                  <div className="sm:col-span-7 p-6 md:p-8 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-serif text-lg sm:text-xl text-[#2C2C24] group-hover:text-[#5D7052] transition-colors duration-300 font-extrabold">
+                        {item.title}
+                      </h3>
+                      <p className="text-[11px] text-[#2C2C24]/65 uppercase tracking-wider font-bold mt-1 italic text-[#C18C5D]">
+                        {item.moq}
+                      </p>
+                      <p className="text-xs text-[#2C2C24]/70 leading-relaxed font-light mt-3">
+                        {item.tagline}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 mt-6 pt-4 border-t border-[#DED8CF]/40">
+                      <button
+                        onClick={() => setSelectedService(item)}
+                        className="text-[10px] text-center bg-[#F0EBE5] hover:bg-[#E6DCCD] font-bold py-2.5 px-1 rounded-full text-[#2C2C24] tracking-wide uppercase transition-all duration-300 hover:scale-105"
+                      >
+                        Detail
+                      </button>
+                      <button
+                        onClick={() => handleConsultService(item)}
+                        className="text-[10px] text-center bg-[#5D7052]/10 hover:bg-[#5D7052] hover:text-[#F3F4F1] font-bold py-2.5 px-1 rounded-full text-[#5D7052] tracking-wide uppercase transition-all duration-300 hover:scale-105"
+                      >
+                        Konsultasi
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
 
-        {/* Detailed Sheet Modal Overlay for Services */}
+        {/* Detailed Modal Overlay Sheet for Services */}
         {selectedService && (
-          <div className="fixed inset-0 bg-[#2B2B2B]/30 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-[#F5F1EA] w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl border border-[#B89B72]/20 relative my-8 animate-scale-up">
+          <div className="fixed inset-0 bg-[#2C2C24]/55 backdrop-blur-md z-[200] flex items-center justify-center p-4">
+            <div 
+              className="bg-[#FDFCF8] w-full max-w-3xl overflow-hidden shadow-2xl border border-[#DED8CF]/40 relative my-8 animate-scale-up"
+              style={{ borderRadius: "3rem 1rem 3rem 1rem" }}
+            >
               
               {/* Close Button */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute top-5 right-5 z-20 p-2.5 rounded-full bg-white/80 hover:bg-white text-[#2B2B2B] hover:text-[#7B8B6F] transition-colors shadow-sm"
+                className="absolute top-5 right-5 z-50 p-2.5 rounded-full bg-[#2C2C24] hover:bg-black text-white transition-colors shadow-sm"
                 aria-label="Close details"
               >
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="grid grid-cols-1 md:grid-cols-12">
+              <div className="grid grid-cols-1 md:grid-cols-12 max-h-[85vh] overflow-y-auto">
                 
                 {/* Modal Visual Left side */}
-                <div className="md:col-span-5 relative h-56 md:h-auto bg-[#EFEAE0]">
+                <div className="md:col-span-5 relative h-56 md:h-auto bg-[#F0EBE5]">
                   <img
                     src={selectedService.image}
                     alt={selectedService.title}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-[#B89B72]/10 mix-blend-multiply" />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#2B2B2B]/50 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-[#C18C5D]/10 mix-blend-multiply" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#2C2C24]/60 via-transparent to-transparent" />
                   
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-[#B89B72] bg-white px-2.5 py-1 rounded-full">{selectedService.category}</span>
-                    <h4 className="font-serif text-lg leading-tight mt-2">{selectedService.title}</h4>
+                  <div className="absolute bottom-6 left-6 right-6 text-white text-left">
+                    <span className="text-[9px] uppercase tracking-widest font-bold text-[#C18C5D] bg-[#FDFCF8] px-3 py-1 rounded-full">{selectedService.category}</span>
+                    <h4 className="font-serif text-lg leading-tight mt-3 font-bold">{selectedService.title}</h4>
                   </div>
                 </div>
 
                 {/* Modal Info Right side */}
-                <div className="md:col-span-7 p-8 md:p-10 max-h-[80vh] overflow-y-auto">
+                <div className="md:col-span-7 p-8 md:p-10 text-left">
                   
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#B89B72] font-semibold">Atelier Standard Service Specs</span>
-                  <h3 className="font-serif text-2xl text-[#2B2B2B] mt-2 mb-4">{selectedService.title}</h3>
-                  <p className="text-xs text-[#2B2B2B]/85 leading-relaxed mb-6 border-b border-[#B89B72]/15 pb-4">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#C18C5D] font-bold">Atelier Standard Specs</span>
+                  <h3 className="font-serif text-2xl text-[#2C2C24] mt-2 mb-4 font-bold">{selectedService.title}</h3>
+                  <p className="text-xs text-[#2C2C24]/80 leading-relaxed mb-6 border-b border-[#DED8CF]/50 pb-4 font-light">
                     {selectedService.desc}
                   </p>
 
                   <div className="space-y-6">
                     {/* Fabrics choice */}
                     <div>
-                      <h5 className="flex items-center text-xs uppercase tracking-widest text-[#7B8B6F] font-bold mb-2">
+                      <h5 className="flex items-center text-xs uppercase tracking-widest text-[#5D7052] font-bold mb-2">
                         <Feather className="w-3.5 h-3.5 mr-2" />
                         Pilihan Bahan (Rayon & Katun)
                       </h5>
                       <div className="flex flex-wrap gap-2">
                         {selectedService.fabrics.map((fab, i) => (
-                          <span key={i} className="text-[10px] font-sans text-[#2B2B2B] bg-white border border-[#B89B72]/15 px-3 py-1 rounded-full font-medium">
+                          <span key={i} className="text-[10px] font-sans text-[#2C2C24] bg-[#FEFEFA] border border-[#DED8CF]/60 px-3 py-1.5 rounded-full font-medium shadow-xs">
                             {fab}
                           </span>
                         ))}
@@ -205,14 +290,14 @@ export default function CatalogService() {
 
                     {/* Stitches Standard */}
                     <div>
-                      <h5 className="flex items-center text-xs uppercase tracking-widest text-[#B89B72] font-bold mb-2">
+                      <h5 className="flex items-center text-xs uppercase tracking-widest text-[#C18C5D] font-bold mb-2">
                         <Scissors className="w-3.5 h-3.5 mr-2" />
                         Standar Teknik Jahit (Boutique Grade)
                       </h5>
-                      <div className="space-y-1">
+                      <div className="space-y-2">
                         {selectedService.stitches.map((stitch, i) => (
-                          <div key={i} className="flex items-center text-xs text-[#2B2B2B]/80">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#7B8B6F] mr-2 flex-shrink-0" />
+                          <div key={i} className="flex items-center text-xs text-[#2C2C24]/85 font-light">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#5D7052] mr-2 flex-shrink-0" />
                             <span>{stitch}</span>
                           </div>
                         ))}
@@ -221,14 +306,14 @@ export default function CatalogService() {
 
                     {/* Quality Finishing Standard */}
                     <div>
-                      <h5 className="flex items-center text-xs uppercase tracking-widest text-[#7B8B6F] font-bold mb-2">
+                      <h5 className="flex items-center text-xs uppercase tracking-widest text-[#5D7052] font-bold mb-2">
                         <Sparkles className="w-3.5 h-3.5 mr-2" />
                         Finishing & Packing Eksklusif
                       </h5>
-                      <div className="space-y-1">
+                      <div className="space-y-2">
                         {selectedService.finishing.map((item, i) => (
-                          <div key={i} className="flex items-center text-xs text-[#2B2B2B]/80">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#B89B72] mr-2.5 flex-shrink-0" />
+                          <div key={i} className="flex items-start text-xs text-[#2C2C24]/85 font-light">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#C18C5D] mr-2.5 mt-1.5 flex-shrink-0" />
                             <span>{item}</span>
                           </div>
                         ))}
@@ -236,19 +321,19 @@ export default function CatalogService() {
                     </div>
 
                     {/* Production parameters */}
-                    <div className="grid grid-cols-2 gap-4 bg-white p-4 rounded-xl border border-[#B89B72]/10 mt-6">
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="w-4 h-4 text-[#7B8B6F]" />
+                    <div className="grid grid-cols-2 gap-4 bg-[#FEFEFA] p-4 rounded-2xl border border-[#DED8CF]/40 mt-6 shadow-xs">
+                      <div className="flex items-center space-x-2.5">
+                        <Calendar className="w-4 h-4 text-[#5D7052]" />
                         <div>
-                          <p className="text-[9px] uppercase tracking-wider text-[#2B2B2B]/50 font-semibold">Estimasi Waktu</p>
-                          <p className="text-xs font-semibold text-[#2B2B2B]">{selectedService.duration}</p>
+                          <p className="text-[9px] uppercase tracking-wider text-[#2C2C24]/50 font-bold">Estimasi Waktu</p>
+                          <p className="text-xs font-semibold text-[#2C2C24]">{selectedService.duration}</p>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-2">
-                        <FileText className="w-4 h-4 text-[#B89B72]" />
+                      <div className="flex items-center space-x-2.5">
+                        <FileText className="w-4 h-4 text-[#C18C5D]" />
                         <div>
-                          <p className="text-[9px] uppercase tracking-wider text-[#2B2B2B]/50 font-semibold">Minimal Order</p>
-                          <p className="text-xs font-semibold text-[#2B2B2B]">{selectedService.moq}</p>
+                          <p className="text-[9px] uppercase tracking-wider text-[#2C2C24]/50 font-bold">Minimal Order</p>
+                          <p className="text-xs font-semibold text-[#2C2C24]">{selectedService.moq}</p>
                         </div>
                       </div>
                     </div>

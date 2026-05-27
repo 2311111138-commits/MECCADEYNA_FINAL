@@ -1,14 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-brand-bg: #F5F1EA;
-  --color-brand-primary: #7B8B6F;
-  --color-brand-accent: #B89B72;
-  --color-brand-dark: #2B2B2B;
+  --color-brand-bg: #FDFCF8;
+  --color-brand-primary: #5D7052;
+  --color-brand-accent: #C18C5D;
+  --color-brand-dark: #2C2C24;
   
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-organic-bg: #FDFCF8;
+  --color-organic-fg: #2C2C24;
+  --color-organic-primary: #5D7052;
+  --color-organic-secondary: #C18C5D;
+  --color-organic-accent: #E6DCCD;
+  --color-organic-muted: #F0EBE5;
+  --color-organic-muted-fg: #78786C;
+  --color-organic-border: #DED8CF;
+  
+  --font-serif: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Nunito", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   
   --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-in-down: fade-in-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -55,19 +64,33 @@ html {
   color: var(--color-brand-dark);
 }
 
-/* Custom premium scrollbar */
+/* Wabi-sabi paper texture effect overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%2523noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom premium scrollbar matching moss green / terracotta */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5F1EA;
+  background: #FDFCF8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #B89B72;
+  background: #C18C5D;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7B8B6F;
+  background: #5D7052;
 }
 
 /* Fine tune markdown and typography utilities */
@@ -81,10 +104,10 @@ html {
 
 @utility btn-primary {
   background-color: var(--color-brand-primary);
-  color: #ffffff;
+  color: #F3F4F1;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -93,20 +116,26 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 20px -2px rgba(93, 112, 82, 0.15);
 
   &:hover {
-    background-color: #68775d;
-    border-color: #68775d;
-    transform: translateY(-1px);
+    background-color: #4c5c43;
+    border-color: #4c5c43;
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px -4px rgba(93, 112, 82, 0.25);
+  }
+  
+  &:active {
+    transform: scale(0.95);
   }
 }
 
 @utility btn-outline {
-  border: 1px solid var(--color-brand-primary);
-  color: var(--color-brand-primary);
+  border: 2px solid var(--color-brand-accent);
+  color: var(--color-brand-accent);
   padding: 0.75rem 2rem;
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -117,8 +146,12 @@ html {
   background-color: transparent;
 
   &:hover {
-    background-color: rgba(123, 139, 111, 0.08);
-    transform: translateY(-1px);
+    background-color: rgba(193, 140, 93, 0.1);
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    transform: scale(0.95);
   }
 }
 

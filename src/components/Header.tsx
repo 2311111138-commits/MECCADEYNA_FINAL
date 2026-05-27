@@ -61,12 +61,12 @@ export default function Header() {
       id="main-navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#F5F1EA]/90 backdrop-blur-md shadow-sm border-b border-[#B89B72]/10 py-4"
+          ? "bg-[#FDFCF8]/80 backdrop-blur-md shadow-soft border-b border-[#DED8CF]/50 py-4"
           : "bg-transparent py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-14 md:h-16">
-        {/* Brand Logo - Styled as Luxury Atelier */}
+        {/* Brand Logo - Styled as Organic Atelier */}
         <a
           href="#hero"
           onClick={(e) => {
@@ -75,16 +75,16 @@ export default function Header() {
           }}
           className="flex flex-col items-start select-none group"
         >
-          <span className="font-serif text-2xl tracking-[0.15em] text-black font-bold leading-none group-hover:text-[#7B8B6F] transition-colors duration-300">
+          <span className="font-serif text-2xl tracking-[0.12em] text-[#2C2C24] font-extrabold leading-none group-hover:text-[#5D7052] transition-colors duration-300">
             MECCADEYNA
           </span>
-          <span className="text-[8px] uppercase tracking-[0.3em] text-black mt-1 font-bold select-none">
+          <span className="text-[8px] uppercase tracking-[0.3em] text-[#78786C] mt-1 font-bold select-none">
             MOSLEM PREMIUM OUTFIT
           </span>
         </a>
 
-        {/* Desktop Navbar Menu - Friendlier, beautifully aligned, soft pill interaction */}
-        <nav className="hidden lg:flex items-center bg-[#F5F1EA]/50 backdrop-blur-sm border border-[#B89B72]/20 rounded-full px-6 py-1.5 space-x-1">
+        {/* Desktop Navbar Menu - Floating rounded pill of glassmorphism */}
+        <nav className="hidden lg:flex items-center bg-[#FDFCF8]/70 backdrop-blur-md border border-[#DED8CF]/60 rounded-full px-6 py-1.5 space-x-1 shadow-soft">
           {menuItems.map((item) => (
             <a
               key={item.href}
@@ -95,8 +95,8 @@ export default function Header() {
               }}
               className={`font-sans text-xs tracking-wider uppercase px-4 py-2 rounded-full select-none transition-all duration-300 ${
                 activeTab === item.id
-                  ? "text-white bg-[#7B8B6F] font-bold shadow-xs border border-[#7B8B6F]"
-                  : "text-black font-semibold border border-transparent hover:text-[#7B8B6F] hover:bg-white/60"
+                  ? "text-[#F3F4F1] bg-[#5D7052] font-bold shadow-soft"
+                  : "text-[#2C2C24] font-semibold border border-transparent hover:text-[#5D7052] hover:bg-white/60"
               }`}
             >
               {item.label}
@@ -110,7 +110,7 @@ export default function Header() {
             href="https://wa.me/6281234567890?text=Halo%20Meccadeyna%2C%20saya%20tertarik%20untuk%20konsultasi%20makloon%20brand%20fashion%20saya."
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 bg-[#7B8B6F] text-white hover:bg-[#68775d] px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 hover:shadow-md hover:translate-y-[-1px] border border-transparent hover:border-[#B89B72]/20 shadow-xs"
+            className="flex items-center space-x-2 bg-[#5D7052] text-[#F3F4F1] hover:bg-[#4c5c43] px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 hover:scale-105 active:scale-95 shadow-soft"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Mulai Konsultasi</span>
@@ -121,7 +121,7 @@ export default function Header() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
-          className="lg:hidden p-2 text-[#2B2B2B] hover:text-[#7B8B6F] transition-colors"
+          className="lg:hidden p-2 text-[#2C2C24] hover:text-[#5D7052] transition-colors"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -129,7 +129,7 @@ export default function Header() {
 
       {/* Mobile Backdrop & Navigation Drawer */}
       <div
-        className={`fixed inset-0 top-[73px] bg-[#F5F1EA] z-40 transition-all duration-500 ease-in-out lg:hidden flex flex-col justify-between overflow-y-auto pb-24 ${
+        className={`fixed inset-0 top-[73px] bg-[#FDFCF8] z-40 transition-all duration-500 ease-in-out lg:hidden flex flex-col justify-between overflow-y-auto pb-24 ${
           isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
         }`}
       >
@@ -142,8 +142,8 @@ export default function Header() {
                 e.preventDefault();
                 handleNavClick(item.href);
               }}
-              className={`block font-serif text-2xl tracking-wide border-b border-[#B89B72]/10 pb-3 hover:text-[#7B8B6F] transition-colors ${
-                activeTab === item.id ? "text-[#7B8B6F] font-bold pl-2" : "text-black font-semibold"
+              className={`block font-serif text-2xl tracking-wide border-b border-[#DED8CF]/40 pb-3 hover:text-[#5D7052] transition-colors ${
+                activeTab === item.id ? "text-[#5D7052] font-bold pl-2" : "text-[#2C2C24] font-semibold"
               }`}
             >
               {item.label}
@@ -152,16 +152,16 @@ export default function Header() {
         </div>
 
         {/* Mobile Bottom WhatsApp CTA */}
-        <div className="p-8 bg-[#F5F1EA] border-t border-[#B89B72]/10 space-y-4">
+        <div className="p-8 bg-[#F0EBE5]/50 border-t border-[#DED8CF]/40 space-y-4 rounded-t-[2rem]">
           <div className="text-center">
-            <p className="text-xs tracking-wider text-[#B89B72] uppercase">WhatsApp Service</p>
-            <p className="text-xs text-[#2B2B2B]/70 mt-1">Konsultasi gratis & pendampingan brand eksklusif</p>
+            <p className="text-xs tracking-wider text-[#C18C5D] uppercase font-bold">WhatsApp Service</p>
+            <p className="text-xs text-[#2C2C24]/70 mt-1">Konsultasi gratis & pendampingan brand eksklusif</p>
           </div>
           <a
             href="https://wa.me/6281234567890?text=Halo%20Meccadeyna%2C%20saya%20tertarik%20untuk%20konsultasi%20makloon%20brand%20fashion%20saya."
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center space-x-2 w-full bg-[#7B8B6F] text-white py-4 rounded-full text-sm font-semibold tracking-wider uppercase"
+            className="flex items-center justify-center space-x-2 w-full bg-[#5D7052] text-[#F3F4F1] py-4 rounded-full text-sm font-bold tracking-wider uppercase shadow-soft"
           >
             <MessageCircle className="w-5 h-5" />
             <span>Hubungi Via WhatsApp</span>
