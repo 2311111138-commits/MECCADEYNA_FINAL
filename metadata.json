@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Meccadeyna",
+  "description": "Jasa Makloon Fashion Brand Premium - Spesialis Gamis, Muslim Wear, dan Dailywear dengan Bahan Rayon \u0026 Katun Premium.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
