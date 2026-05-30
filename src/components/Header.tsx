@@ -22,7 +22,7 @@ export default function Header() {
       }
 
       // Read current scroll position to update active hash link
-      const sections = ["hero", "tentang", "layanan", "visualizer", "alur", "portfolio", "testimoni", "contact"];
+      const sections = ["hero", "tentang", "layanan", "visualizer", "alur", "portfolio", "testimoni", "faq", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -57,6 +57,7 @@ export default function Header() {
     { label: "Alur Produksi", href: "#alur", id: "alur" },
     { label: "Portfolio", href: "#portfolio", id: "portfolio" },
     { label: "Testimoni", href: "#testimoni", id: "testimoni" },
+    { label: "FAQ", href: "#faq", id: "faq" },
   ];
 
   const handleNavClick = (href: string) => {

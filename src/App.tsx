@@ -16,6 +16,7 @@ import InteractiveVisualizer from "./components/InteractiveVisualizer";
 import ProductionTimeline from "./components/ProductionTimeline";
 import PortfolioMasonry from "./components/PortfolioMasonry";
 import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
 import BespokeCTA from "./components/BespokeCTA";
 import Footer from "./components/Footer";
 import { MessageCircle } from "lucide-react";
@@ -56,6 +57,9 @@ export default function App() {
 
         {/* Client & Partner Testimonial Showcase */}
         <Testimonials />
+
+        {/* Frequently Asked Questions (FAQ) Section for trust and SEO expansion */}
+        <FAQ />
 
         {/* Conversion WhatsApp Soft-Sell Segment */}
         <BespokeCTA />
