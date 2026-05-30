@@ -10,8 +10,9 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState("hero");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Handle transparent to blurred white transition on scroll
+  // Handle transparent to blurred white transition on scroll and track page scroll progress
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -21,7 +22,7 @@ export default function Header() {
       }
 
       // Read current scroll position to update active hash link
-      const sections = ["hero", "tentang", "layanan", "visualizer", "alur", "portfolio", "contact"];
+      const sections = ["hero", "tentang", "layanan", "visualizer", "alur", "portfolio", "testimoni", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -33,6 +34,15 @@ export default function Header() {
             setActiveTab(section);
           }
         }
+      }
+
+      // Calculate scroll progress percentage
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(progress);
+      } else {
+        setScrollProgress(0);
       }
     };
 
@@ -46,6 +56,7 @@ export default function Header() {
     { label: "Material Visualizer", href: "#visualizer", id: "visualizer" },
     { label: "Alur Produksi", href: "#alur", id: "alur" },
     { label: "Portfolio", href: "#portfolio", id: "portfolio" },
+    { label: "Testimoni", href: "#testimoni", id: "testimoni" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -65,6 +76,16 @@ export default function Header() {
           : "bg-transparent py-6"
       }`}
     >
+      {/* Scroll Progress Bar */}
+      <div className="absolute top-0 left-0 w-full h-[3px] bg-[#DED8CF]/25 overflow-hidden pointer-events-none">
+        <div
+          className="h-full transition-all duration-75 ease-out rounded-r-full"
+          style={{ 
+            width: `${scrollProgress}%`,
+            background: "linear-gradient(to right, #5D7052, #C18C5D)"
+          }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-14 md:h-16">
         {/* Brand Logo - Styled as Organic Atelier */}
         <a
@@ -84,7 +105,7 @@ export default function Header() {
         </a>
 
         {/* Desktop Navbar Menu - Floating rounded pill of glassmorphism */}
-        <nav className="hidden lg:flex items-center bg-[#FDFCF8]/70 backdrop-blur-md border border-[#DED8CF]/60 rounded-full px-6 py-1.5 space-x-1 shadow-soft">
+        <nav className="hidden lg:flex items-center bg-[#FDFCF8]/85 backdrop-blur-lg border border-[#DED8CF]/50 rounded-full lg:px-4 lg:py-1.5 xl:px-6 xl:py-2.5 lg:space-x-1 xl:space-x-1.5 lg:mx-4 xl:mx-6 shadow-sm transition-all duration-300">
           {menuItems.map((item) => (
             <a
               key={item.href}
@@ -93,10 +114,10 @@ export default function Header() {
                 e.preventDefault();
                 handleNavClick(item.href);
               }}
-              className={`font-sans text-xs tracking-wider uppercase px-4 py-2 rounded-full select-none transition-all duration-300 ${
+              className={`font-sans text-[10px] xl:text-[11px] tracking-[0.05em] xl:tracking-[0.08em] uppercase lg:px-3 lg:py-1.5 xl:px-4 xl:py-2 rounded-full select-none transition-all duration-300 ${
                 activeTab === item.id
-                  ? "text-[#F3F4F1] bg-[#5D7052] font-bold shadow-soft"
-                  : "text-[#2C2C24] font-semibold border border-transparent hover:text-[#5D7052] hover:bg-white/60"
+                  ? "text-[#F3F4F1] bg-[#5D7052] font-semibold shadow-soft"
+                  : "text-[#2C2C24]/80 font-medium border border-transparent hover:text-[#5D7052] hover:bg-white/80"
               }`}
             >
               {item.label}

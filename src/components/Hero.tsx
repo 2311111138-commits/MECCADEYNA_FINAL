@@ -56,7 +56,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-[#FDFCF8] flex items-center pt-28 pb-20 lg:pt-36 lg:pb-32 overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-br from-[#FEFEFC] via-[#FDFCF8] to-[#F4EFE5] flex items-center pt-28 pb-20 lg:pt-36 lg:pb-32 overflow-hidden"
     >
       {/* Organic blob backgrounds creating ambient light */}
       <div 
@@ -165,22 +165,25 @@ export default function Hero() {
           >
             {/* Main Image Frame with wabi-sabi rotasi -2deg and thick border matching natural systems */}
             <div 
-              className="relative w-full max-w-sm sm:max-w-md xl:max-w-full aspect-[4/5] overflow-hidden shadow-float group border-[12px] border-white bg-white transition-all duration-700"
+              className="relative w-full max-w-sm sm:max-w-md xl:max-w-full aspect-[4/5] overflow-hidden shadow-float group border-[12px] border-white bg-white transition-[transform,box-shadow] duration-700 select-none cursor-pointer isolate transform"
               style={{ 
-                transform: "rotate(-2deg)",
-                borderRadius: "30% 70% 40% 60% / 50% 40% 60% 50%" 
+                transform: "rotate(-2deg) translate3d(0, 0, 0)",
+                borderRadius: "30% 70% 40% 60% / 50% 40% 60% 50%",
+                WebkitBorderRadius: "30% 70% 40% 60% / 50% 40% 60% 50%",
+                WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+                willChange: "transform"
               }}
             >
               
               {/* Overlay shading */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/0 to-black/10 z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 via-black/0 to-black/5 z-10 pointer-events-none" />
               <div className="absolute inset-0 bg-[#C18C5D]/5 mix-blend-color z-10 pointer-events-none" />
               
               <img
                 src={heroImage}
                 alt="Meccadeyna Haute Couture Fashion Atelier"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-[1.2s] scale-100 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-[1.2s] ease-[0.16,1,0.3,1] scale-100 group-hover:scale-105 group-active:scale-110 select-none pointer-events-none"
               />
 
               {/* Sophisticated floating details card on bottom of image */}

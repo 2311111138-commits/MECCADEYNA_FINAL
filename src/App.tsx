@@ -15,6 +15,7 @@ import CatalogService from "./components/CatalogService";
 import InteractiveVisualizer from "./components/InteractiveVisualizer";
 import ProductionTimeline from "./components/ProductionTimeline";
 import PortfolioMasonry from "./components/PortfolioMasonry";
+import Testimonials from "./components/Testimonials";
 import BespokeCTA from "./components/BespokeCTA";
 import Footer from "./components/Footer";
 import { MessageCircle } from "lucide-react";
@@ -52,6 +53,9 @@ export default function App() {
 
         {/* Pinterest Gallery Grid with stitching macros & Lightbox details */}
         <PortfolioMasonry />
+
+        {/* Client & Partner Testimonial Showcase */}
+        <Testimonials />
 
         {/* Conversion WhatsApp Soft-Sell Segment */}
         <BespokeCTA />
