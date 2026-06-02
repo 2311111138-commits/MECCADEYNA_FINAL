@@ -4,11 +4,8 @@
  */
 
 import React, { useState } from "react";
-// 1. KITA IMPORT GAMBARNYA DI SINI AGAR TERBACA OLEH VERCEL
-import fotoDasterUtama from "../assets/images/daster_black_navy_1780392547984.png";
 
 export default function InteractiveVisualizer() {
-  // State untuk interaktivitas visualizer premium
   const [selectedFabric, setSelectedFabric] = useState("Premium Rayon");
   const [selectedColor, setSelectedColor] = useState("Black Navy");
 
@@ -35,9 +32,9 @@ export default function InteractiveVisualizer() {
             </div>
             
             <div className="w-full max-w-md h-[400px] rounded-xl overflow-hidden shadow-inner bg-[#2B2B2B] flex items-center justify-center border border-white/10">
-              {/* 2. DI SINI KITA PANGGIL VARIABEL FOTONYA MENGGUNAKAN KURUNG KURAWAL */}
+              {/* Membaca langsung dari folder public/images */}
               <img 
-                src={fotoDasterUtama} 
+                src="/images/daster_black_navy_1780392547984.png" 
                 alt="Meccadeyna Daster Premium Preview" 
                 className="w-full h-full object-cover transition-all duration-700 ease-out transform group-hover:scale-105"
               />
