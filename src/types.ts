@@ -34,9 +34,10 @@ export interface ProductionStep {
 
 export interface GalleryItem {
   id: string;
-  category: "gamis" | "muslim-wear" | "dailywear" | "proses" | "jahitan" | "packing";
+  category: "gamis" | "muslim-wear" | "dailywear" | "daster" | "mukena" | "pajamas-oneset" | "jilbab" | "baju-anak";
   title: string;
   image: string;
+  fabric?: string;
 }
 
 export interface ConsultationState {
