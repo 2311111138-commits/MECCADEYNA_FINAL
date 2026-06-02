@@ -815,3 +815,13 @@ export default function PortfolioMasonry() {
     </section>
   );
 }
+<img
+  src={getImageSrc(photo.id, photo.image)}
+  alt={photo.title}
+  className="w-full h-full object-cover"
+  loading="lazy"
+  onError={(e) => {
+    console.error("IMAGE ERROR:", photo.image);
+    handleImageError(photo.id, photo.image);
+  }}
+/>
