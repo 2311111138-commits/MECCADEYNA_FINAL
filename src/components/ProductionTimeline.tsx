@@ -26,7 +26,7 @@ export default function ProductionTimeline() {
       title: "Consultation & Vision Sketching",
       subtitle: "Merundingkan Visi Estetika & Sketsa Teknis Rencana Koleksi",
       description: "Kami menyambut hangat para founder modest fashion brand. Proses awal ini berpusat pada pemetaan ide orisinal Anda, mulai dari proporsi siluet Gamis, rincian drapery Abaya, detail lipit kancing, hingga penyesuaian target pasar dan penetapan budget produksi (Harga Pokok Produksi) yang optimal.",
-      image: "/src/assets/images/meccadeyna_hero_1779880710395.png",
+      image: "/assets/images/meccadeyna_hero_1779880710395.png",
       technicalBrief: "Analisis Kelayakan Pola (Pattern Feasibility Study): Memasukkan detail bukaan wudhu-friendly pada manset dan ritsleting menyusui (busui) fungsional.",
       checklist: [
         "Sesi brainstorming konsep desain & mood board",
@@ -54,7 +54,7 @@ export default function ProductionTimeline() {
       title: "Surgical Fitting Sample",
       subtitle: "Jahit Purwarupa Fisik 1 Pcs Khusus Untuk Uji Kelayakan",
       description: "Kami tidak akan memproduksi massal sebelum Anda tersenyum puas memegang sample fisik baju. Kami membuatkan 1 pcs pakaian contoh utuh sesuai detail terpilih, kemudian mengirimkannya langsung ke alamat workshop atau rumah Anda untuk sesi uji coba pakai (fitting session) dan penilaian langsung di cermin.",
-      image: "/src/assets/images/meccadeyna_stitching_1779880733810.png",
+      image: "/assets/images/meccadeyna_stitching_1779880733810.png",
       technicalBrief: "Boutique-Grade Sewing Sample: Penjahit sampel senior memproses purwarupa dengan setelan kerapian obras tingkat tinggi untuk menguji keluwesan ayunan bahan di tubuh model.",
       checklist: [
         "Pembuatan Master Pola khusus (Custom Sizing Grid)",
@@ -68,7 +68,7 @@ export default function ProductionTimeline() {
       title: "Precision Manufacturing",
       subtitle: "Produksi Massal Dipandu Teknologi Potong & Penjahit Senior",
       description: "Setelah sampel disetujui penuh, tahap pemotongan massal (cutting) akan dikerjakan dengan pisau vertikal garmen presisi tinggi agar seluruh lembar pola seragam mili demi mili. Jahit massal dikomando langsung oleh tim penjahit terspesialisasi gamis dan dailywear rayon, menjamin jahitan kokoh tanpa kerut kain.",
-      image: "/src/assets/images/meccadeyna_garment_1779880760948.png",
+      image: "/assets/images/meccadeyna_garment_1779880760948.png",
       technicalBrief: "SPI (Stitch Per Inch) Formula: Menerapkan standar minimal 11 - 13 tusukan jarum per inci, menggunakan jarum bermerek Organ Jepang no. 11/13 anti-lubang rajutan.",
       checklist: [
         "Cutting pola garmen industri berakurasi tingkat tinggi",

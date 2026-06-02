@@ -28,7 +28,7 @@ export default function CatalogService() {
       id: "gamis",
       category: "Gamis Production",
       title: "Premium Gamis & Abaya Atelier",
-      image: "/src/assets/images/meccadeyna_garment_1779880760948.png",
+      image: "/assets/images/meccadeyna_garment_1779880760948.png",
       tagline: "Gaun muslimah berkelas dgn draf drapery siluet mengalir sempurna.",
       desc: "Meccadeyna menguasai teknik pembuatan Gamis premium dengan siluet anggun, jahitan kelim kecil rapi, detail plisket lipat berkelas, ritsleting Jepang tersembunyi, hingga detail manset lengan fungsional wudhu-friendly.",
       fabrics: ["Rayon Twill Eco", "Rayon Silk Premium", "Katun Toyobo Royal", "Linen Sand-washed"],

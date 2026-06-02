@@ -6,7 +6,7 @@
 import { Check, Sparkles, Heart, Truck, MessageSquareCode, Globe } from "lucide-react";
 
 export default function AboutAtelier() {
-  const stitchingImage = "/src/assets/images/meccadeyna_stitching_1779880733810.png";
+  const stitchingImage = "/assets/images/meccadeyna_stitching_1779880733810.png";
 
   const keyPoints = [
     {

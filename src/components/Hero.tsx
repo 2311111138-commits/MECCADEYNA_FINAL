@@ -15,7 +15,7 @@ export default function Hero() {
     }
   };
 
-  const heroImage = "/src/assets/images/meccadeyna_hero_1779880710395.png";
+  const heroImage = "/assets/images/meccadeyna_hero_1779880710395.png";
 
   const containerVariants = {
     hidden: { opacity: 0 },
