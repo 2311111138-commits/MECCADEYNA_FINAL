@@ -3,99 +3,83 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from "react";
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
-export default function InteractiveVisualizer() {
-  const [selectedFabric, setSelectedFabric] = useState("Premium Rayon");
-  const [selectedColor, setSelectedColor] = useState("Black Navy");
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import AboutAtelier from "./components/AboutAtelier";
+import CatalogService from "./components/CatalogService";
+import InteractiveVisualizer from "./components/InteractiveVisualizer";
+import ProductionTimeline from "./components/ProductionTimeline";
+import PortfolioMasonry from "./components/PortfolioMasonry";
+import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
+import BespokeCTA from "./components/BespokeCTA";
+import Footer from "./components/Footer";
+import { MessageCircle } from "lucide-react";
+
+export default function App() {
+  const handleMobileWaClick = () => {
+    const text = "Halo Meccadeyna, saya berkunjung dari website premium dan tertarik untuk berkonsultasi mengenai produksi makloon modest brand saya.";
+    window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(text)}`, "_blank");
+  };
 
   return (
-    <section id="visualizer" className="py-24 bg-[#2B2B2B] text-[#F5F1EA] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-[0.2em] text-[#7B8B6F] font-bold">Planning Studio</span>
-          <h2 className="text-3xl md:text-5xl font-serif mt-3 mb-6 tracking-wide text-white">
-            Bespoke Interactive Visualizer
-          </h2>
-          <p className="text-sm md:text-base text-[#F5F1EA]/70 font-sans leading-relaxed">
-            Simulasikan material kain premium pilihan Anda langsung pada pola cutting daster eksklusif Meccadeyna sebelum masuk ke tahap produksi massal.
-          </p>
-        </div>
+    <div className="bg-[#F5F1EA] min-h-screen text-[#2B2B2B] overflow-x-hidden antialiased selection:bg-[#7B8B6F]/25 selection:text-[#2B2B2B]">
+      
+      {/* Decorative Premium Border framing the entire letterbox page (Luxury agency style) */}
+      <div className="hidden xl:block fixed inset-0 z-50 border-[10px] border-[#F5F1EA] pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* KIRI: AREA DISPLAY GAMBAR DASTER */}
-          <div className="lg:col-span-7 bg-[#1F1F1F] p-8 rounded-2xl border border-white/5 shadow-2xl flex flex-col items-center justify-center min-h-[450px] relative group">
-            <div className="absolute top-4 left-4 bg-[#7B8B6F]/20 border border-[#7B8B6F]/30 px-3 py-1 rounded-full text-[10px] tracking-widest uppercase font-bold text-[#9BB088]">
-              {selectedFabric} — {selectedColor}
-            </div>
-            
-            <div className="w-full max-w-md h-[400px] rounded-xl overflow-hidden shadow-inner bg-[#2B2B2B] flex items-center justify-center border border-white/10">
-              {/* Membaca langsung dari folder public/images */}
-              <img 
-                src="/images/daster_black_navy_1780392547984.png" 
-                alt="Meccadeyna Daster Premium Preview" 
-                className="w-full h-full object-cover transition-all duration-700 ease-out transform group-hover:scale-105"
-              />
-            </div>
-          </div>
+      {/* Sticky Top Luxury Navigation bar */}
+      <Header />
 
-          {/* KANAN: PANEL KONTROL INTERAKTIF */}
-          <div className="lg:col-span-5 space-y-8">
-            <div>
-              <h3 className="text-xl font-serif mb-4 tracking-wide text-white">1. Pilih Jenis Material Kain</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {["Premium Rayon", "Cotton Twill Luxury"].map((fabric) => (
-                  <button
-                    key={fabric}
-                    onClick={() => setSelectedFabric(fabric)}
-                    className={`p-4 rounded-xl border text-left transition-all duration-300 font-sans ${
-                      selectedFabric === fabric 
-                        ? "border-[#7B8B6F] bg-[#7B8B6F]/10 text-white font-medium" 
-                        : "border-white/10 bg-transparent text-[#F5F1EA]/60 hover:border-white/30"
-                    }`}
-                  >
-                    <div className="text-xs uppercase tracking-wider">{fabric}</div>
-                    <div className="text-[10px] text-[#7B8B6F] mt-1">Sangat Adem & Lembut</div>
-                  </button>
-                ))}
-              </div>
-            </div>
+      <main className="relative">
+        {/* Hero Segment */}
+        <Hero />
 
-            <div>
-              <h3 className="text-xl font-serif mb-4 tracking-wide text-white">2. Pilih Varian Warna</h3>
-              <div className="flex flex-wrap gap-3">
-                {["Black Navy", "Maroon Velvet", "Olive Grove", "Sage Elegance"].map((color) => (
-                  <button
-                    key={color}
-                    onClick={() => setSelectedColor(color)}
-                    className={`px-4 py-2 rounded-full border text-xs uppercase tracking-widest transition-all duration-300 font-sans ${
-                      selectedColor === color
-                        ? "border-[#7B8B6F] bg-[#7B8B6F] text-[#2B2B2B] font-bold shadow-[0_4px_20px_rgba(123,139,111,0.3)]"
-                        : "border-white/10 bg-transparent text-[#F5F1EA]/70 hover:border-white/30"
-                    }`}
-                  >
-                    {color}
-                  </button>
-                ))}
-              </div>
-            </div>
+        {/* Filosofi & Tentang Meccadeyna */}
+        <AboutAtelier />
 
-            <div className="pt-6 border-t border-white/10">
-              <div className="p-4 bg-[#1F1F1F] rounded-xl border border-white/5 space-y-2">
-                <div className="text-[10px] uppercase tracking-widest text-[#7B8B6F] font-bold">Rekomendasi Produksi</div>
-                <p className="text-xs text-[#F5F1EA]/70 leading-relaxed">
-                  Kombinasi <span className="text-white font-medium">{selectedFabric}</span> dengan warna <span className="text-white font-medium">{selectedColor}</span> sangat diminati oleh kalangan modest brand premium untuk pasar homewear eksklusif tahun ini.
-                </p>
-              </div>
-            </div>
+        {/* Layanan & Katalog Produksi */}
+        <CatalogService />
 
-          </div>
+        {/* Bespoke Interactive Cotton/Rayon Visualizer Planning Studio */}
+        <InteractiveVisualizer />
 
-        </div>
+        {/* Production step-by-step Timeline */}
+        <ProductionTimeline />
 
-      </div>
-    </section>
+        {/* Pinterest Gallery Grid with stitching macros & Lightbox details */}
+        <PortfolioMasonry />
+
+        {/* Client & Partner Testimonial Showcase */}
+        <Testimonials />
+
+        {/* Frequently Asked Questions (FAQ) Section for trust and SEO expansion */}
+        <FAQ />
+
+        {/* Conversion WhatsApp Soft-Sell Segment */}
+        <BespokeCTA />
+      </main>
+
+      {/* Elegant Detailed Footer */}
+      <Footer />
+
+      {/* STICKY WHATSAPP FLOATING BADGE ON MOBILE */}
+      <button
+        onClick={handleMobileWaClick}
+        aria-label="Contact WhatsApp"
+        className="lg:hidden fixed bottom-6 right-6 z-50 bg-[#7B8B6F] text-white p-4 rounded-full shadow-[0_10px_30px_rgba(123,139,111,0.4)] border border-white/20 active:scale-90 hover:bg-[#68775d] transition-all duration-300 flex items-center justify-center group animate-pulse"
+      >
+        <MessageCircle className="w-6 h-6 text-white" />
+        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-out text-[10px] uppercase tracking-widest font-bold font-sans pl-0 group-hover:pl-2">
+          Consult
+        </span>
+      </button>
+    </div>
   );
 }
+

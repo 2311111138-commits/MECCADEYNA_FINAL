@@ -116,7 +116,7 @@ export default function PortfolioMasonry() {
       category: "daster",
       title: "Daster Flutter - Midnight & Navy",
       fabric: "Rayon Viscose Premium",
-      image: image: "/images/daster_black_navy_1780392547984.png"
+      image: "/src/assets/images/daster_black_navy_1780392547984.png"
     },
     {
       id: "daster-lilac-mauve",
